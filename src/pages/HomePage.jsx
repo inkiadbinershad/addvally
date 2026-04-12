@@ -77,8 +77,8 @@ export default function HomePage() {
 
         {/* Desktop nav links */}
         <div className="hp-nav-links" style={{ display: 'flex', gap: 36, alignItems: 'center' }}>
-          {[['Home', '#home'], ['About', '#about'], ['Pricing', '#pricing'], ['Contact', '#contact-section']].map(([label, href]) => (
-            <a key={label} href={href} style={{
+{[['Home', '#home'], ['About', '#about'], ['Pricing', '#pricing'], ['Contact', '/contact']].map(([label, href]) => (
+            <Link key={label} to={href} style={{
               fontSize: 14, fontWeight: 500,
               color: 'var(--text2)',
               textDecoration: 'none',
@@ -86,9 +86,10 @@ export default function HomePage() {
             }}
               onMouseEnter={e => e.target.style.color = isDark ? 'var(--accent)' : 'var(--blue)'}
               onMouseLeave={e => e.target.style.color = 'var(--text2)'}
-            >{label}</a>
-          ))}
-        </div>
+              >{label}</Link>
+            ))}
+          </div>
+
 
         {/* Right actions */}
         <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
@@ -125,7 +126,7 @@ export default function HomePage() {
             textDecoration: 'none',
             boxShadow: isDark ? '0 0 16px var(--accent-glow)' : 'none',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-          }}>Start Free →</Link>
+          }}>Free →</Link>
         </div>
       </nav>
 
@@ -144,7 +145,6 @@ export default function HomePage() {
           : 'linear-gradient(145deg, #f8faff 0%, #eef4ff 50%, #f0f7ff 100%)',
       }}>
 
-        {/* Dark mode: animated neon green horizontal band (Aaghaz.ai style) */}
         {isDark && (
           <>
             <div style={{
@@ -161,7 +161,6 @@ export default function HomePage() {
               boxShadow: '0 0 30px rgba(0,255,159,0.2)',
               animation: 'glowPulse 3s 1.5s ease-in-out infinite',
             }} />
-            {/* Grid pattern overlay */}
             <div style={{
               position: 'absolute', inset: 0,
               backgroundImage: `
@@ -171,7 +170,6 @@ export default function HomePage() {
               backgroundSize: '60px 60px',
               maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)',
             }} />
-            {/* Radial glow center */}
             <div style={{
               position: 'absolute', inset: 0,
               background: 'radial-gradient(ellipse 70% 50% at 50% 50%, rgba(0,255,159,0.06) 0%, transparent 70%)',
@@ -180,7 +178,6 @@ export default function HomePage() {
           </>
         )}
 
-        {/* Light mode subtle mesh */}
         {!isDark && (
           <div style={{
             position: 'absolute', inset: 0,
@@ -192,7 +189,6 @@ export default function HomePage() {
           }} />
         )}
 
-        {/* Hero grid */}
         <div className="hp-hero-grid" style={{
           position: 'relative', zIndex: 1,
           maxWidth: 1200, margin: '0 auto', width: '100%',
@@ -204,7 +200,6 @@ export default function HomePage() {
 
           {/* LEFT — text */}
           <div>
-            {/* Tag */}
             <div style={{
               display: 'inline-flex', alignItems: 'center', gap: 8,
               padding: '6px 14px', borderRadius: 20, marginBottom: 24,
@@ -218,7 +213,6 @@ export default function HomePage() {
               🇵🇰 Pakistan's first AI ad platform
             </div>
 
-            {/* Headline */}
             <h1 className="hp-h1" style={{
               fontFamily: 'var(--font-head)',
               fontSize: 'clamp(36px, 5vw, 60px)',
@@ -237,14 +231,12 @@ export default function HomePage() {
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
                 textShadow: isDark ? '0 0 40px rgba(0,255,159,0.3)' : 'none',
-
               }}>
                 smarter ads
               </span>
               <br />on every platform
             </h1>
 
-            {/* Subheadline */}
             <p style={{
               fontSize: 'clamp(15px, 2vw, 18px)',
               color: 'var(--text2)',
@@ -255,7 +247,6 @@ export default function HomePage() {
               AI finds your perfect audience. You approve. Addvally auto-posts to Meta, Google & TikTok — in Urdu or English.
             </p>
 
-            {/* CTAs */}
             <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 32 }}>
               <Link to="/payment?plan=trial" style={{
                 padding: '14px 28px',
@@ -298,7 +289,6 @@ export default function HomePage() {
               </a>
             </div>
 
-            {/* Trust badges */}
             <div style={{
               display: 'flex', gap: 20, flexWrap: 'wrap',
               fontSize: 12, fontWeight: 600,
@@ -312,12 +302,9 @@ export default function HomePage() {
 
           {/* RIGHT — dashboard mockup card */}
           <div style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
-            {/* Main mockup card */}
             <div style={{
               width: '100%', maxWidth: 420,
-              background: isDark
-                ? 'rgba(13, 17, 23, 0.9)'
-                : '#ffffff',
+              background: isDark ? 'rgba(13, 17, 23, 0.9)' : '#ffffff',
               border: `1px solid ${isDark ? 'rgba(0,255,159,0.2)' : 'rgba(15,82,186,0.12)'}`,
               borderRadius: 20,
               overflow: 'hidden',
@@ -326,7 +313,6 @@ export default function HomePage() {
                 : '0 20px 60px rgba(15,82,186,0.15)',
               backdropFilter: isDark ? 'blur(10px)' : 'none',
             }}>
-              {/* Mockup top bar */}
               <div style={{
                 padding: '12px 16px',
                 borderBottom: `1px solid ${isDark ? 'rgba(0,255,159,0.1)' : 'var(--border)'}`,
@@ -347,9 +333,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Dashboard content inside mockup */}
               <div style={{ padding: '16px' }}>
-                {/* Stats row */}
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8, marginBottom: 14 }}>
                   {[
                     { label: 'Impressions', val: '48.2K', up: true },
@@ -369,7 +353,6 @@ export default function HomePage() {
                   ))}
                 </div>
 
-                {/* Mini bar chart */}
                 <div style={{
                   padding: '12px', marginBottom: 12,
                   background: isDark ? 'rgba(255,255,255,0.03)' : 'var(--bg2)',
@@ -389,7 +372,6 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                {/* Active campaign row */}
                 <div style={{
                   display: 'flex', alignItems: 'center', gap: 10,
                   padding: '10px 12px',
@@ -404,7 +386,6 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Floating badge 1 */}
             <div className="float-1" style={{
               position: 'absolute', top: -10, right: -14,
               background: isDark ? 'rgba(13,17,23,0.95)' : '#fff',
@@ -417,7 +398,6 @@ export default function HomePage() {
               <div style={{ fontSize: 10, color: 'var(--text3)' }}>2 minutes ago</div>
             </div>
 
-            {/* Floating badge 2 */}
             <div className="float-2" style={{
               position: 'absolute', bottom: 20, left: -14,
               background: isDark ? 'rgba(13,17,23,0.95)' : '#fff',
@@ -472,45 +452,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* ── STATS BANNER ─────────────────────────────────────────────── */}
-      <section style={{ padding: 'clamp(40px, 6vw, 60px) clamp(20px, 5vw, 56px)' }}>
-        <div className="hp-stats-grid" style={{
-          maxWidth: 1200, margin: '0 auto',
-          display: 'grid',
-          gridTemplateColumns: 'repeat(5, 1fr)',
-          gap: 'clamp(10px, 2vw, 20px)',
-        }}>
-          {[
-            { icon: '🏪', val: '1,200+', label: 'Brands served' },
-            { icon: '🛍️', val: '480+', label: 'E-commerce stores' },
-            { icon: '🎯', val: '98%', label: 'Targeting accuracy' },
-            { icon: '📊', val: '+340%', label: 'Avg growth' },
-            { icon: '💰', val: '₨4.2Cr+', label: 'Ad spend managed' },
-          ].map((s, i) => (
-            <div key={i} style={{
-              textAlign: 'center', padding: 'clamp(16px, 2vw, 22px) 12px',
-              background: 'var(--card)',
-              border: `1px solid ${isDark ? 'rgba(0,255,159,0.1)' : 'var(--border)'}`,
-              borderRadius: 14,
-              boxShadow: isDark ? '0 0 20px rgba(0,255,159,0.04)' : 'var(--shadow)',
-              transition: 'all .2s',
-            }}
-              onMouseEnter={e => {
-                e.currentTarget.style.transform = 'translateY(-4px)'
-                e.currentTarget.style.borderColor = isDark ? 'rgba(0,255,159,0.3)' : 'var(--blue)'
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.transform = 'none'
-                e.currentTarget.style.borderColor = isDark ? 'rgba(0,255,159,0.1)' : 'var(--border)'
-              }}
-            >
-              <div style={{ fontSize: 26, marginBottom: 8 }}>{s.icon}</div>
-              <div style={{ fontFamily: 'var(--font-head)', fontSize: 'clamp(18px, 3vw, 24px)', fontWeight: 800, color: isDark ? 'var(--accent)' : 'var(--blue)', marginBottom: 4 }}>{s.val}</div>
-              <div style={{ fontSize: 11, color: 'var(--text3)', fontWeight: 600 }}>{s.label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* ── STATS BANNER REMOVED ── */}
 
       {/* ── WHAT WE DO ───────────────────────────────────────────────── */}
       <section id="about" className="hp-section" style={{
@@ -673,67 +615,22 @@ export default function HomePage() {
             {plans.map((plan) => (
               <PricingCard key={plan.id} plan={plan} />
             ))}
-
           </div>
         </div>
       </section>
 
-      {/* ── CONTACT ──────────────────────────────────────────────────── */}
-      <section id="contact-section" className="hp-section" style={{
-        padding: 'clamp(52px, 8vw, 80px) clamp(20px, 5vw, 56px)',
-        background: isDark ? '#080c12' : 'var(--bg2)',
-        borderTop: `1px solid ${isDark ? 'rgba(0,255,159,0.07)' : 'var(--border)'}`,
-        textAlign: 'center',
-      }}>
-        <div style={{ maxWidth: 760, margin: '0 auto' }}>
-          <div style={{ fontFamily: 'var(--font-head)', fontSize: 11, color: isDark ? 'var(--accent)' : 'var(--blue)', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 12, fontWeight: 700 }}>Contact</div>
-          <h2 style={{ fontFamily: 'var(--font-head)', fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 800, marginBottom: 16, color: 'var(--text)' }}>Questions? We are here.</h2>
-          <p style={{ fontSize: 16, color: 'var(--text2)', marginBottom: 40 }}>Reach us via WhatsApp, email, or call directly.</p>
-
-          <div className="hp-contact-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'clamp(12px, 2vw, 20px)', maxWidth: 680, margin: '0 auto' }}>
-            {[
-              { icon: '💬', title: 'WhatsApp', value: '+92 300 0000000', sub: 'Fastest response', href: 'https://wa.me/923000000000' },
-              { icon: '📧', title: 'Email', value: 'hello@addvally.pk', sub: 'Reply within 2 hrs', href: 'mailto:hello@addvally.pk' },
-              { icon: '📍', title: 'Office', value: 'Karachi, Pakistan', sub: 'Mon–Sat 9am–6pm', href: '#' },
-            ].map((c, i) => (
-              <a key={i} href={c.href} style={{
-                display: 'block', padding: 'clamp(18px, 2.5vw, 24px) 16px',
-                background: 'var(--card)',
-                border: `1px solid ${isDark ? 'rgba(0,255,159,0.08)' : 'var(--border)'}`,
-                borderRadius: 14, textDecoration: 'none',
-                transition: 'all .2s',
-                boxShadow: 'var(--shadow)',
-              }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.transform = 'translateY(-4px)'
-                  e.currentTarget.style.borderColor = isDark ? 'rgba(0,255,159,0.3)' : 'var(--blue)'
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.transform = 'none'
-                  e.currentTarget.style.borderColor = isDark ? 'rgba(0,255,159,0.08)' : 'var(--border)'
-                }}
-              >
-                <div style={{ fontSize: 26, marginBottom: 10 }}>{c.icon}</div>
-                <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text)', marginBottom: 4 }}>{c.title}</div>
-                <div style={{ fontSize: 13, color: isDark ? 'var(--accent)' : 'var(--blue)', marginBottom: 3 }}>{c.value}</div>
-                <div style={{ fontSize: 11, color: 'var(--text3)' }}>{c.sub}</div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── FOOTER ───────────────────────────────────────────────────── */}
+    
+      {/* ── FOOTER — navy gradient ────────────────────────────────────── */}
       <footer style={{
-        background: isDark ? '#020408' : '#0d1117',
+        background: 'linear-gradient(160deg, #0a0f2e 0%, #0d1b4b 40%, #0a1a3e 70%, #060d24 100%)',
         padding: 'clamp(40px, 6vw, 56px) clamp(20px, 5vw, 56px) clamp(20px, 3vw, 28px)',
-        borderTop: `1px solid ${isDark ? 'rgba(0,255,159,0.08)' : 'rgba(255,255,255,0.07)'}`,
+        borderTop: '1px solid rgba(99,132,255,0.15)',
       }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div className="hp-footer-grid" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 'clamp(24px, 4vw, 48px)', marginBottom: 40 }}>
             <div>
               <div style={{ fontFamily: 'var(--font-head)', fontSize: 20, fontWeight: 800, color: '#fff', marginBottom: 12 }}>Addvally</div>
-              <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', lineHeight: 1.75, maxWidth: 260, marginBottom: 20 }}>
+              <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.45)', lineHeight: 1.75, maxWidth: 260, marginBottom: 20 }}>
                 Pakistan's first AI-powered ad management platform. Meta, Google & TikTok from one place.
               </p>
               <div style={{ display: 'flex', gap: 8 }}>
@@ -748,14 +645,14 @@ export default function HomePage() {
               { title: 'Support', links: ['Help center', 'WhatsApp', 'Email us', 'Status'] },
             ].map(col => (
               <div key={col.title}>
-                <div style={{ fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.25)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 16 }}>{col.title}</div>
+                <div style={{ fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 16 }}>{col.title}</div>
                 {col.links.map(link => (
-                  <a key={link} href="#" style={{ display: 'block', fontSize: 13, color: 'rgba(255,255,255,0.45)', marginBottom: 10 }}>{link}</a>
+                  <a key={link} href="#" style={{ display: 'block', fontSize: 13, color: 'rgba(255,255,255,0.5)', marginBottom: 10, textDecoration: 'none' }}>{link}</a>
                 ))}
               </div>
             ))}
           </div>
-          <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: 20, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8 }}>
+          <div style={{ borderTop: '1px solid rgba(99,132,255,0.12)', paddingTop: 20, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8 }}>
             <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.25)' }}>© 2025 Addvally. All rights reserved.</div>
             <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.25)' }}>Made in Pakistan 🇵🇰</div>
           </div>
@@ -763,7 +660,7 @@ export default function HomePage() {
       </footer>
 
       {/* WhatsApp Floating Action Button */}
-      <a href="https://wa.me/923000000000" className="whatsapp-fab" 
+      <a href="https://wa.me/923000000000" className="whatsapp-fab"
          style={{
            position: 'fixed',
            bottom: '24px',
@@ -771,7 +668,7 @@ export default function HomePage() {
            width: '56px',
            height: '56px',
            borderRadius: '50%',
-           background: isDark ? '#25D366' : '#25D366',
+           background: '#25D366',
            display: 'flex',
            alignItems: 'center',
            justifyContent: 'center',

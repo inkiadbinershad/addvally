@@ -8,10 +8,15 @@ export default function Layout() {
   const location = useLocation()
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
+
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+    if (typeof window === 'undefined') return;
+    if (location.pathname !== '/contact') {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+    }
     setSidebarOpen(false)
   }, [location.pathname])
+
 
   return (
     <div className="app-layout">
@@ -32,8 +37,8 @@ export default function Layout() {
       <div className="main-content">
         <Topbar />
         <Outlet />
-        <Footer />
       </div>
+
     </div>
   )
 }

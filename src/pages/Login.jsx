@@ -6,6 +6,7 @@ export default function Login() {
   const navigate = useNavigate()
   const { theme } = useTheme()
   const isDark = theme === 'dark'
+  const [showPassword, setShowPassword] = useState(false)
   const [form, setForm] = useState({ email: '', password: '' })
 
   const handleSubmit = e => {
@@ -23,7 +24,7 @@ export default function Login() {
     }}>
         <div style={{ 
           width: '100%', 
-maxWidth: 522,
+          maxWidth: 522,
           margin: '0 auto',
           display: 'flex', 
           flexDirection: 'column', 
@@ -43,7 +44,7 @@ maxWidth: 522,
           
           <div className="card" style={{ 
             width: '100%', 
-padding: '40px 32px',
+            padding: '40px 32px',
             background: 'var(--card)', 
             border: `1px solid ${isDark ? 'rgba(255,255,255,0.08)' : 'var(--border)'}`,
             borderRadius: '20px',
@@ -74,7 +75,7 @@ padding: '40px 32px',
               <input 
                 type="email" 
                 className="form-input" 
-placeholder="ahmed@business.pk" 
+                placeholder="ahmed@business.pk" 
                 value={form.email} 
                 onChange={e => setForm({ ...form, email: e.target.value })} 
                 required 
@@ -82,11 +83,28 @@ placeholder="ahmed@business.pk"
             </div>
 
             <div style={{ width: '100%' }}>
-              <label className="form-label">Password</label>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+                <label className="form-label" style={{ marginBottom: 0 }}>Password</label>
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  style={{
+                    border: 'none',
+                    background: 'transparent',
+                    color: isDark ? '#00ff9f' : 'var(--blue)',
+                    fontSize: 13,
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                    padding: 0
+                  }}
+                >
+                  {showPassword ? 'Hide' : 'Show'}
+                </button>
+              </div>
               <input 
-                type="password" 
+                type={showPassword ? 'text' : 'password'} 
                 className="form-input" 
-placeholder="Your password" 
+                placeholder="Your password" 
                 value={form.password} 
                 onChange={e => setForm({ ...form, password: e.target.value })} 
                 required 
@@ -96,7 +114,7 @@ placeholder="Your password"
             <button 
               type="submit" 
               className="btn-primary" 
-style={{ 
+              style={{ 
                 width: '280px', 
                 padding: '12px 16px',
                 fontSize: '15px',
@@ -109,13 +127,18 @@ style={{
             </button>
           </form>
 
-          <div style={{ textAlign: 'center', marginTop: 32, fontSize: 14, color: 'var(--text2)' }}>
-            Don't have an account?{' '}
-            <Link to="/signup" style={{ color: isDark ? '#00ff9f' : 'var(--blue)', fontWeight: 700 }}>Sign up</Link>
+          <div style={{ textAlign: 'center', marginTop: 24, fontSize: 14, color: 'var(--text2)', lineHeight: 1.7 }}>
+            <div>
+              Don't have an account?{' '}
+              <Link to="/signup" style={{ color: isDark ? '#00ff9f' : 'var(--blue)', fontWeight: 700 }}>Sign up</Link>
+            </div>
+            <div>
+              By continuing, you agree to our{' '}
+              <Link to="/terms" style={{ color: isDark ? '#00ff9f' : 'var(--blue)', fontWeight: 700 }}>Terms & Conditions</Link>
+            </div>
           </div>
         </div>
       </div>
     </div>
   )
 }
-

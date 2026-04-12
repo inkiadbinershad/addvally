@@ -30,7 +30,23 @@ const HeroSection = () => {
       </div>
 
       <div className="hero-right">
-        {/* keep your existing dashboard/image code here */}
+        <div className="phone">
+          <div className="phone-screen">
+            <div className="ad-header">
+              <div className="ad-avatar">AK</div>
+              <div>
+                <div className="ad-name">Ahmed's Restaurant</div>
+                <div className="ad-sub">Sponsored · Karachi</div>
+              </div>
+            </div>
+            <div className="ad-image">🌙</div>
+            <div className="ad-content">
+              <div className="ad-title">Eid Special Offer</div>
+              <div className="ad-desc">30% off your entire order this Eid. Limited time offer.</div>
+              <button className="ad-btn">Order Now</button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
