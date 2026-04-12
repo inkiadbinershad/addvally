@@ -6,6 +6,8 @@ export default function Signup() {
   const navigate = useNavigate()
   const { theme } = useTheme()
   const isDark = theme === 'dark'
+  const [showPassword, setShowPassword] = useState(false)
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const [form, setForm] = useState({ email: '', password: '', confirmPassword: '' })
 
   const handleSubmit = e => {
@@ -23,7 +25,7 @@ export default function Signup() {
     }}>
         <div style={{ 
           width: '100%', 
-maxWidth: 522,
+          maxWidth: 522,
           margin: '0 auto',
           display: 'flex', 
           flexDirection: 'column', 
@@ -43,7 +45,7 @@ maxWidth: 522,
           
           <div className="card" style={{ 
             width: '100%', 
-padding: '40px 32px',
+            padding: '40px 32px',
             background: 'var(--card)', 
             border: `1px solid ${isDark ? 'rgba(255,255,255,0.08)' : 'var(--border)'}`,
             borderRadius: '20px',
@@ -64,7 +66,7 @@ padding: '40px 32px',
             Create account
           </h1>
           <p style={{ fontSize: 15, color: 'var(--text2)', marginBottom: 32, textAlign: 'center' }}>
-            Join 1,200+ businesses running smarter ads
+            Start building smarter campaigns with Addvally
           </p>
 
           <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 24, width: '100%', maxWidth: '430px' }}>
@@ -74,7 +76,7 @@ padding: '40px 32px',
               <input 
                 type="email" 
                 className="form-input" 
-placeholder="ahmed@business.pk" 
+                placeholder="ahmed@business.pk" 
                 value={form.email} 
                 onChange={e => setForm({ ...form, email: e.target.value })} 
                 required 
@@ -82,11 +84,28 @@ placeholder="ahmed@business.pk"
             </div>
 
             <div style={{ width: '100%' }}>
-              <label className="form-label">Password</label>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+                <label className="form-label" style={{ marginBottom: 0 }}>Password</label>
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  style={{
+                    border: 'none',
+                    background: 'transparent',
+                    color: isDark ? '#00ff9f' : 'var(--blue)',
+                    fontSize: 13,
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                    padding: 0
+                  }}
+                >
+                  {showPassword ? 'Hide' : 'Show'}
+                </button>
+              </div>
               <input 
-                type="password" 
+                type={showPassword ? 'text' : 'password'} 
                 className="form-input" 
-placeholder="Create a password" 
+                placeholder="Create a password" 
                 value={form.password} 
                 onChange={e => setForm({ ...form, password: e.target.value })} 
                 required 
@@ -94,11 +113,28 @@ placeholder="Create a password"
             </div>
 
             <div style={{ width: '100%' }}>
-              <label className="form-label">Confirm Password</label>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+                <label className="form-label" style={{ marginBottom: 0 }}>Confirm Password</label>
+                <button
+                  type="button"
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                  style={{
+                    border: 'none',
+                    background: 'transparent',
+                    color: isDark ? '#00ff9f' : 'var(--blue)',
+                    fontSize: 13,
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                    padding: 0
+                  }}
+                >
+                  {showConfirmPassword ? 'Hide' : 'Show'}
+                </button>
+              </div>
               <input 
-                type="password" 
+                type={showConfirmPassword ? 'text' : 'password'} 
                 className="form-input" 
-placeholder="Confirm your password" 
+                placeholder="Confirm your password" 
                 value={form.confirmPassword} 
                 onChange={e => setForm({ ...form, confirmPassword: e.target.value })} 
                 required 
@@ -108,9 +144,7 @@ placeholder="Confirm your password"
             <button 
               type="submit" 
               className="btn-primary" 
-              // enabled - TODO: add real auth
-
-style={{ 
+              style={{ 
                 width: '280px', 
                 padding: '12px 16px',
                 fontSize: '15px',
@@ -123,13 +157,18 @@ style={{
             </button>
           </form>
 
-          <div style={{ textAlign: 'center', marginTop: 32, fontSize: 14, color: 'var(--text2)' }}>
-            Already have an account?{' '}
-            <Link to="/login" style={{ color: isDark ? '#00ff9f' : 'var(--blue)', fontWeight: 700 }}>Sign in</Link>
+          <div style={{ textAlign: 'center', marginTop: 24, fontSize: 14, color: 'var(--text2)', lineHeight: 1.7 }}>
+            <div>
+              Already have an account?{' '}
+              <Link to="/login" style={{ color: isDark ? '#00ff9f' : 'var(--blue)', fontWeight: 700 }}>Sign in</Link>
+            </div>
+            <div>
+              By creating an account, you agree to our{' '}
+              <Link to="/terms" style={{ color: isDark ? '#00ff9f' : 'var(--blue)', fontWeight: 700 }}>Terms & Conditions</Link>
+            </div>
           </div>
         </div>
       </div>
     </div>
   )
 }
-

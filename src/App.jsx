@@ -20,10 +20,8 @@ import ContactUs from './pages/ContactUs'
 export default function App() {
   return (
     <ThemeProvider>
-      <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-        
+      <BrowserRouter>
         <Routes>
-
           {/* 🌐 Public Routes (No Layout) */}
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
@@ -33,7 +31,6 @@ export default function App() {
 
           {/* 🧠 Dashboard Routes (With Layout) */}
           <Route element={<Layout />}>
-
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/campaigns" element={<Campaigns />} />
             <Route path="/create" element={<CreateCampaign />} />
@@ -48,11 +45,9 @@ export default function App() {
 
             {/* Other */}
             <Route path="/contact" element={<ContactUs />} />
-
           </Route>
 
         </Routes>
-
       </BrowserRouter>
     </ThemeProvider>
   )
