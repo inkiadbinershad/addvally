@@ -28,6 +28,7 @@ export default function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/contact" element={<ContactUs />} />
 
           {/* 🧠 Dashboard Routes (With Layout) */}
           <Route element={<Layout />}>
@@ -42,9 +43,6 @@ export default function App() {
             <Route path="/settings" element={<Settings />} />
             <Route path="/growth" element={<GrowthRevenue />} />
             <Route path="/onboarding" element={<Onboarding />} />
-
-            {/* Other */}
-            <Route path="/contact" element={<ContactUs />} />
           </Route>
 
         </Routes>

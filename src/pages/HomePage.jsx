@@ -611,11 +611,18 @@ export default function HomePage() {
             <p style={{ fontSize: 16, color: 'var(--text2)' }}>All prices in PKR. No hidden fees. Cancel anytime.</p>
           </div>
 
-          <div className="hp-pricing-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'clamp(16px, 2.5vw, 28px)', alignItems: 'center' }}>
-            {plans.map((plan) => (
-              <PricingCard key={plan.id} plan={plan} />
-            ))}
-          </div>
+<div className="hp-pricing-grid" style={{ 
+  display: 'grid', 
+  gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
+  gap: 'clamp(16px, 2.5vw, 28px)', 
+  alignItems: 'center',
+  maxWidth: 800,
+  margin: '0 auto'
+}} >
+  {plans.map((plan) => (
+    <PricingCard key={plan.id} plan={plan} />
+  ))}
+</div>
         </div>
       </section>
 

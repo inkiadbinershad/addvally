@@ -1,3 +1,1 @@
-
-3. [ ] Verify layout in dev server
-4. [ ] Mark complete
+# Task Progress: Fix Homepage Cards to 2x2 Grid\n\n## Steps from Approved Plan:\n\n- [x] **1. Create TODO.md** - Tracking file created\n- [ ] 2. Edit src/pages/HomePage.jsx pricing grid to repeat(2, 1fr)\n- [ ] 3. Add mobile responsive (1 column on small screens)\n- [ ] 4. Test layout visually (npm run dev)\n- [ ] 5. Confirm 2 cards per row desktop, 1 mobile, no breaks\n- [ ] 6. Update TODO.md complete & attempt_completion\n\nCurrent step: Editing HomePage.jsx...

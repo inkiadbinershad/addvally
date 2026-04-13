@@ -1,0 +1,4 @@
+{
+  "javascript.typescript.validate.enable": false,
+  "javascript.typescript.suggest.autoImports": false
+}
