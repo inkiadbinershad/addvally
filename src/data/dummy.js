@@ -89,8 +89,9 @@ export const plans = [
   {
     id: 'starter',
     name: 'Starter',
-    price: '₨400',
-    yearlyPrice: '₨4,800',
+    price: '₨ 700',
+    oldPrice: '₨ 1,000',
+    yearlyPrice: '₨ 4,800',
     trial: ' 3 day trial',
     desc: 'A simple starting plan for small businesses testing digital ads.',
     features: [
@@ -106,8 +107,9 @@ export const plans = [
   {
     id: 'growth',
     name: 'Growth',
-    price: '₨2,499',
-    yearlyPrice: '₨29,988',
+    price: '₨ 2,499',
+    oldPrice: '₨ 3,000',
+    yearlyPrice: '₨ 29,988',
     desc: 'For growing brands that want stronger reach across multiple channels.',
     featured: true,
     features: [
@@ -123,8 +125,9 @@ export const plans = [
   {
     id: 'business',
     name: 'Business Agency',
-    price: '₨7,999',
-    yearlyPrice: '₨95,988',
+    price: '₨ 7,999',
+    oldPrice: '₨ 10,000',
+    yearlyPrice: '₨ 95,988',
     desc: 'Built for agencies and serious advertisers managing multiple client campaigns.',
     features: [
       { text: '10 campaigns', included: true },

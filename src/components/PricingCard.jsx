@@ -57,6 +57,20 @@ export default function PricingCard({ plan }) {
         {plan.name}
       </div>
 
+        {plan.oldPrice && (
+          <div style={{
+            fontFamily: 'var(--font-head)',
+            fontSize: 18,
+            fontWeight: 600,
+            color: 'var(--text2)',
+            opacity: 0.6,
+            textDecoration: 'line-through',
+            marginBottom: 4,
+            textAlign: 'center'
+          }}>
+            {plan.oldPrice}
+          </div>
+        )}
       <div style={{ fontFamily: 'var(--font-head)', fontSize: 'clamp(28px, 4vw, 38px)', fontWeight: 800, color: isDark ? 'var(--accent)' : 'var(--blue)', marginBottom: 4, lineHeight: 1, display: 'flex', alignItems: 'baseline', gap: '12px', flexWrap: 'wrap' }}>
         <span style={{marginRight: '4px'}}>{plan.price}</span>
         {plan.trial ? (
